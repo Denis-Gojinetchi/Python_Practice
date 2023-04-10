@@ -245,13 +245,13 @@ def saveThePrisoner(n, m, s):
             return 2
     
     
-def towerBreakers(n, m):
-    if m == 1:
-        return 2
-    if n == 1:
-        return 1
-
-    return 2 if n % 2 == 0 else 1
+    def towerBreakers(n, m):
+        if m == 1:
+            return 2
+        if n == 1:
+            return 1
+    
+        return 2 if n % 2 == 0 else 1
 
 if __name__ == '__main__':
     print("Hello World!")
