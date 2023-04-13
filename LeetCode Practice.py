@@ -10,7 +10,7 @@ import sys
 import re
 from typing import List
 import collections as ListNode
-
+from collections import Counter
 
 """2047. Number of Valid Words in a Sentence"""
 class Solution:
@@ -244,7 +244,7 @@ def saveThePrisoner(n, m, s):
         if player % 2 != 0:
             return 2
     
-    
+    """more efficient way to solve towerBreakers"""
     def towerBreakers(n, m):
         if m == 1:
             return 2
@@ -252,20 +252,91 @@ def saveThePrisoner(n, m, s):
             return 1
     
         return 2 if n % 2 == 0 else 1
+    """HackerRank:Jim and the Orders"""
+    def jimOrders(orders):
+        res = []
+        for i in orders:
+            g = [sum(i),orders.index(i)+1]
+            res.append(g)
+        res.sort()
+        q = []
+        
+        for i in res:
+            print (i)
+            q.append (i[1])
+        return q
+
+    """HackerRank:Permuting Two Arrays"""
+
+    def twoArrays(k, A, B):
+        A.sort()
+        B.sort(reverse=True)
+        for i in range(len(A)):
+            if A[i] + B[i] < k:
+                return "NO"
+        return "YES"
+
+    """HackerRank:minimum Absolute Difference in array"""
+    def minimumAbsoluteDifference(arr):
+    # Write your code here
+        arr.sort()
+        low = 0
+        low = abs(arr[0] - arr[1])
+        for i in range(len(arr) - 1):
+            if abs(arr[i] - arr[i+1]) < low:
+                low = abs(arr[i] - arr[i+1])
+        return low
+    
+    """HackerRank:Marc's Cakewalk"""
+    def marcsCakewalk(calorie):
+        # Write your code here
+        calorie.sort(reverse=True)
+        res = 0
+        for i,j in enumerate(calorie):
+            res = res + (2**i)*j
+        return res
+    
+    """HackerRank:String Construction"""
+    def stringConstruction(s):
+        return len(set(s))
+
+
+
+
+    def isValid(s):
+        count = list(Counter(s).values())
+        frequencies = set(count)
+    
+        if len(frequencies) == 1:
+            return "YES"
+        if len(frequencies) > 2:
+            return "NO"
+        one_time_frequency = count.count(1)
+        if one_time_frequency == 1:
+            return "YES"
+        if one_time_frequency > 1 :
+            return "NO"
+        list_set = list(frequencies)
+        if abs(list_set[0]-list_set[1]) == 1:
+            return "YES"
+    
+        return "NO"
+
+
+
 
 if __name__ == '__main__':
     print("Hello World!")
-    word = "abs dsa aw! qwe-qwe-"
+    word = "abcdefghhgfedecba"
     #a = Solution()
     #b = a.countValidWords
     #c = saveThePrisoner(3, 7, 3)
     #res = ["c","o","o"]
     #words = ["bella","label","roller"]
-    k = 3
-    c = [[5, 0], [10, 0], [1, 1], [2, 1], [5, 1], [8, 1]]
-    m = 7
-    n = 3
-    towerBreakers(n, m)
+    q = ["eabcd","fghij","olkmn","trpqs","xywuv"]
+
+
+    
     
 
     
